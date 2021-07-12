@@ -28,7 +28,7 @@ void sort(int array[] , int size)
     for(i=0; i<size; i++)
         for(j=0; j<size-1; j++)
             if(*(pointer+j) > *(pointer+j+1))
-                swap((pointer+j),(pointer+j+1));  //true swap index array number
+                swap((pointer+j),(pointer+j+1));  //if true swap index array number
 }
 
 void swap(int *pa , int *pb)
