@@ -14,7 +14,7 @@ main()
     sort(array,size);
 
     for(int j=0; j<size; j++)   //after sort print array
-        cout << array[j] << "   ";
+        cout << array[j] << "   ";  //[1,2,3,4,5,6]
 
 
 }
