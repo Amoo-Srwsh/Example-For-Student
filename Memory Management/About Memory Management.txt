@@ -5,15 +5,3 @@ In other programming languages such as Java and Python, the compiler automatical
 In C++, we need to deallocate the dynamically allocated memory manually after we have no use for the variable.
 
 We can allocate and then deallocate memory dynamically using the new and delete operators respectively.
-
-
-
-
-
-
-
-
-
-
-
-
