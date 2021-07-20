@@ -1,4 +1,5 @@
 //dynamic array
+//Copyleft Amoo-Srwsh
 #include <iostream>
 #include <iomanip>
 #include <conio.h>
