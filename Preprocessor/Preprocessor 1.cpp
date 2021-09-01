@@ -1,53 +1,30 @@
-#ifndef _GLIBCXX_IOSTREAM
-#define _GLIBCXX_IOSTREAM 1
+#include <iostream>
+using namespace std;
+#define DEBUG
 
-#pragma GCC system_header
+#define MIN(a,b) (((a)<(b)) ? a : b)
 
-#include <bits/c++config.h>
-#include <ostream>
-#include <istream>
-
-namespace std _GLIBCXX_VISIBILITY(default)
+int main ()
 {
-_GLIBCXX_BEGIN_NAMESPACE_VERSION
+   int i, j;
+   
+   i = 100;
+   j = 30;
 
-  /**
-   *  @name Standard Stream Objects
-   *
-   *  The &lt;iostream&gt; header declares the eight <em>standard stream
-   *  objects</em>.  For other declarations, see
-   *  http://gcc.gnu.org/onlinedocs/libstdc++/manual/io.html
-   *  and the @link iosfwd I/O forward declarations @endlink
-   *
-   *  They are required by default to cooperate with the global C
-   *  library's @c FILE streams, and to be available during program
-   *  startup and termination. For more information, see the section of the
-   *  manual linked to above.
-  */
-  //@{
-  extern istream cin;		/// Linked to standard input
-  extern ostream cout;		/// Linked to standard output
-  extern ostream cerr;		/// Linked to standard error (unbuffered)
-  extern ostream clog;		/// Linked to standard error (buffered)
-
-#ifdef _GLIBCXX_USE_WCHAR_T
-  extern wistream wcin;		/// Linked to standard input
-  extern wostream wcout;	/// Linked to standard output
-  extern wostream wcerr;	/// Linked to standard error (unbuffered)
-  extern wostream wclog;	/// Linked to standard error (buffered)
+#ifdef DEBUG
+   cerr <<"Trace: Inside main function" << endl;
 #endif
-  //@}
 
-  // For construction of filebuffers for cout, cin, cerr, clog et. al.
-  static ios_base::Init __ioinit;
+#if 0
+   This is commented part
+   cout << MKSTR(HELLO C++) << endl;
+#endif
 
-_GLIBCXX_END_NAMESPACE_VERSION
-} // namespace
+   cout <<"The minimum is " << MIN(i, j) << endl;
 
-#endif /* _GLIBCXX_IOSTREAM */
+#ifdef DEBUG
+   cerr <<"Trace: Coming out of main function" << endl;
+#endif
 
-
-main()
-{
-	std::cout << "Hello World";
+   return 0;
 }
