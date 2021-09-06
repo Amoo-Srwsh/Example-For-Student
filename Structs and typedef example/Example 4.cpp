@@ -4,11 +4,11 @@
 #include<iomanip>
 using namespace std;
 
-           struct item{
-                  int id;
-                  string iname;
-                  int price;
-                  };
+ struct item{
+          int id;
+          string iname;
+          int price;
+          };
 
  struct Order{
            int day;
@@ -18,12 +18,12 @@ using namespace std;
            item warmss;
            };
 
-    struct Name{
+ struct Name{
            string last;
            string first;
            };
     
-    struct Customer{
+ struct Customer{
            struct Name cool;
            string contact;
            struct Order hot;
