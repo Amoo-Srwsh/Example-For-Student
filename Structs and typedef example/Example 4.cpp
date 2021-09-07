@@ -25,6 +25,7 @@ using namespace std;
     
  struct Customer{
            struct Name cool;
+           item id;
            string contact;
            struct Order hot;
            };
@@ -34,6 +35,7 @@ int main ()
     Customer C;
     Order O;
     cin >> C.hot.day;
+    cin >> C.id.id;
     cout << C.hot.month;
     system("pause");
     return 0;
