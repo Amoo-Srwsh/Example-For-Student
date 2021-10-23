@@ -11,6 +11,12 @@
 	(num)
 	Number of bytes to copy.  size_t is an unsigned integral type
 ----------------------------------------------------
+
+
+The function does not check for any terminating null character in source - it always copies exactly num bytes.
+
+
+----------------------------------------------------
 */
 #include <iostream>
 #include <cstdlib>
@@ -19,8 +25,6 @@ using namespace std;
 	
 int main()
 {
-	char r[] = "abcd";
-	cout << static_cast<char *> (memset(r,'f',2));
 	
 	cout << "\n......\n"; 
 	
@@ -30,16 +34,4 @@ int main()
 	cout << a1;
 
 	cout << "\n.....\n";
-	
-	cout << memcmp("abcd","abef",2);
-	
-	cout << "\n......\n";
-	
-	char s[] = "abcde";	
-	cout << static_cast<char *> (memmove(s,&s[1],2));
-	
-	cout << "\n......\n"; 
-	
-	char t[] = "abcdef";
-	cout << static_cast<char *> (memchr(t,'c',3));
 }
