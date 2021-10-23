@@ -1,3 +1,17 @@
+/* memcpy example */
+/* void * memcpy ( void * destination, const void * source, size_t num ); */
+
+/* Parameters
+	(destination)
+	Pointer to the destination array where the content is to be copied,  type-casted to a pointer of type void*.
+----------------------------------------------------
+	(source)
+	Pointer to the source of data to be copied,  type-casted to a pointer of type const void*.
+----------------------------------------------------
+	(num)
+	Number of bytes to copy.  size_t is an unsigned integral type
+----------------------------------------------------
+*/
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
