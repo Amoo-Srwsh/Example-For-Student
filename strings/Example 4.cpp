@@ -6,7 +6,7 @@
 	Pointer to the block of memory of fill.
 ----------------------------------------------------
 	(value)
-Value to be set. The value is passed as an int, but the function fills the block of memory using the unsigned char conversion of this value.
+Value to be set.  The value is passed as an int,  but the function fills the block of memory using the unsigned char conversion of this value.
 ----------------------------------------------------
 	(num)
 	Number of bytes to be set value.
