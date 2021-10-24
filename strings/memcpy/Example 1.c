@@ -1,4 +1,9 @@
 /* memcpy example */
+
+//----------------------------------------------------//
+/* http://www.cplusplus.com/reference/cstring/memcpy/ */
+//----------------------------------------------------//
+
 /* void * memcpy ( void * destination, const void * source, size_t num ); */
 
 /* Parameters
