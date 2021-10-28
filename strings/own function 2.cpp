@@ -4,7 +4,7 @@ using namespace std;
 
 void * StrCpy(char *a,const char *b)
 {
-	while ((*a++ = *b++) != '\0');
+	while (((*a++) = (*b++)) != '\0');
 }
 int main()
 {
