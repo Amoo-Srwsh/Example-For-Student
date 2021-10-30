@@ -1,4 +1,4 @@
-/* write your own strcpy() */
+/* write your own strcat() */
 #include <iostream>
 using namespace std;
 
