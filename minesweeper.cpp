@@ -5,10 +5,12 @@ using namespace std;
 
 int main()
 {
-	int n,m,k;
+	int n, m, k;
+	
 	cin >> n >> m >> k;
 	
-	int a[k][2],tekrar[(n * m) - k];
+	int a[k][2], tekrar[(n * m) - k];
+	
 	char b[n][m];
 
 	for (int i = 0; i < k; i++)
