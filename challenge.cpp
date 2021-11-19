@@ -4,6 +4,8 @@
 #include <cstdlib>
 using namespace std;
 
+/* https://quera.ir/problemset/3031/ */
+
 bool check (long long *b,long long value, long long size)
 {
 	if (size == 0)
