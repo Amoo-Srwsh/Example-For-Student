@@ -4,18 +4,6 @@
 #include <cstdlib>
 using namespace std;
 
-/* https://quera.ir/problemset/3031/ */
-
-bool check (long long *b,long long value, long long size)
-{
-	if (size == 0)
-		return true;
-	for (long long  i = 0; i < size; i++)
-		if (b[i] == value)
-			return false;
-	return true;
-}
-
 void after_num (long long after_number[][2], long long *value, long long size)
 {
 	if (size == 1)
@@ -31,29 +19,36 @@ void after_num (long long after_number[][2], long long *value, long long size)
 		return;
 	}
 	
-	long long blocked_number[size], c = 0;
-	for (long long i = 0; i < size; i++)
-	{	
-		for (long long j = 0; j < size; j++)
+	long long number[size], c = 0;
+	for (long long j = 0; j < size; j++)
+	{
+		long long sum = *value - after_number[j][0];
+		sum += after_number[j][1]; 
+
+		if (sum > *value && *value >= after_number[j][0])
 		{
-			long long sum = *value - after_number[j][0];
-			sum += after_number[j][1]; 
-			if (sum > *value && *value >= after_number[j][0] && check(blocked_number, j + 1, c))
-			{
-				*value -= after_number[j][0];
-				*value += after_number[j][1];
-				
-				blocked_number[c++] = j + 1;
-			}
+			*value -= after_number[j][0];
+			*value += after_number[j][1];
+			continue;
 		}
 		
-		if (c == 0)
-			return;
+		number[c++] = j;
 	}
-	
+		
+	for (long long i = 0; i < c; i++)
+	{
+		long long sum = *value - after_number[number[i]][0];
+		sum += after_number[number[i]][1];
+		
+		if (sum > *value && *value >= after_number[number[i]][0])
+                {
+                        *value -= after_number[number[i]][0];
+                        *value += after_number[number[i]][1];
+                }
+	}
+
 	return;
 }
-
 int main()
 {
 	long long  n, k; 
@@ -70,10 +65,12 @@ int main()
 
 	for (long long  j = 1; j <= n; j++)
 	{
+		if (a[j - 1][0] > a[j - 1][1])
+			continue;
 		long long  sum = energy - a[j - 1][0];
 		sum += a[j - 1][1];
 
-		if (sum >= energy && energy >= a[j - 1][0] && check(blocked_number, j, c))
+		if (sum >= energy && energy >= a[j - 1][0])
 		{
 			energy -= a[j - 1][0];
 			energy += a[j - 1][1];
