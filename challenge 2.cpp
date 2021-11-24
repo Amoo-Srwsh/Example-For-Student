@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string.h>
 using namespace std;
 
 int a_size = 0;
@@ -25,7 +24,7 @@ bool check (char *a, char *b, int loc)
 	for (int i = 0; i < b_size; i++)
 		banned_inedx[i] = b[i];
 
-	while (new_size-- != 0)
+	while (new_size--)
 	{
 		if (a[loc] == '?')
 		{
