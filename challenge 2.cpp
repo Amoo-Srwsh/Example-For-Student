@@ -5,23 +5,12 @@ using namespace std;
 int a_size = 0;
 int b_size = 0;
 
-bool check2 (int *a, int index, int size)
-{
-	if (size == 0)
-		return true;
-
-	for (int i = 0; i < size; i++)
-		if (a[i] == index)
-			return false;
-	return true;
-}
-
-bool check1 (char dest, char *src, int *banned, int *size)
+bool check1 (char dest, char *src, int *banned)
 {
 	for (int i = 0; i < b_size; i++)
-		if (dest == src[i] && check2(banned, i, *size))
+		if (dest == src[i] && banned[i] != 0)
 		{
-			banned[*size++] = i;
+			banned[i] = 0;
 			return true;
 		}
 
@@ -31,14 +20,25 @@ bool check1 (char dest, char *src, int *banned, int *size)
 bool check (char *a, char *b, int loc)
 {
 	int new_size = b_size, symbol = 0;
-	int banned_inedx[b_size], chars = 0, c = 0;
+	int banned_inedx[b_size], chars = 0;
+
+	for (int i = 0; i < b_size; i++)
+		banned_inedx[i] = b[i];
+
 	while (new_size-- != 0)
 	{
 		if (a[loc] == '?')
+		{
 			symbol += 1;
-		if (check1 (a[loc], b, banned_inedx, &c))
+			loc++;
+			continue;
+		}
+		if (check1 (a[loc], b, banned_inedx))
+		{
 			chars += 1;
-		loc++;
+			loc++;
+			continue;
+		}
 	}
 	
 	if ((symbol + chars) == b_size)
