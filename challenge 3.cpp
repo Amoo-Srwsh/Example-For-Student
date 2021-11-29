@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+//                  https://quera.ir/problemset/3431/
+
 int StrLen (char *a)
 {
 	char *b = a;
