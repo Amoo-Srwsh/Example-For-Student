@@ -2,6 +2,8 @@
 #include <iomanip>
 using namespace std;
 
+// https://quera.ir/problemset/3818/
+
 int main()
 {
 	int n,
@@ -26,8 +28,8 @@ int main()
 	    i,
 	    j;
 	c = 0;
-	i = x;    // satr
-	j = y;    // stun
+	i = x;    // row
+	j = y;    // column
 
 	while ( cont[c] != '\0' )
 	{
