@@ -102,8 +102,7 @@ int main()
 
 			dep[ dc ][ 0 ] = 1;
 			cin >> dep[ dc ][ 1 ];
-
-			// Find Time project
+			
 			char time[ 6 ];
 			cin >> time;
 			
@@ -116,7 +115,6 @@ int main()
 			wit[ wc ][ 0 ] = 2;
 			cin >> wit[ wc ][ 1 ];
 
-			// Fint Time project
 			char time[ 6 ];
 			cin >> time;
 
