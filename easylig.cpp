@@ -80,7 +80,7 @@ int main() {
 			continue;
 		}
 
-		if ( input == "end" )
+		if ( input == "end" )  // end of program
 			break;
 
 		cin >> input;
