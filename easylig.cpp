@@ -20,14 +20,14 @@ struct team {
 
 player a[100000];
 team b[100000];
-int counter_a = 0,
-    counter_b = 0;
+int counter_a = 1,
+    counter_b = 1;
 
 void cin_player_info () {
 	cin >> a[counter_a].name >> a[counter_a].prace >> a[counter_a].speed >> 
 	       a[counter_a].finishing >> a[counter_a].defence;
 
-	a[counter_a].player_id = ++counter_a;
+	a[counter_a].player_id = counter_a++;
 }
 
 void cin_team_info () {
@@ -41,12 +41,10 @@ void cin_team_info () {
 	b[ counter_b ].mony = m;
 	b[ counter_b ].name = input;
 	
-	b[counter_b].team_id = ++counter_b;
+	b[counter_b].team_id = counter_b++;
 }
 
 int main() {
-
-	int results[100000], c = 0;
 
 	while ( 1 ) {
 		string input;
@@ -55,20 +53,28 @@ int main() {
 		if ( input == "buy" ) {
 			int id_player,
 			    id_team;
-
+			
 			cin >> id_player >> id_team;
-			if ( id_player > counter_a && id_player < 0 ) {
-				results[ c++ ] = id_player;
+			if ( id_player > counter_a || id_player <= 0 ) {
+				cout << "player with the id " << id_player << " doesnt exist" << endl;
+				goto HELL;
+			}
+			if ( id_team > counter_b || id_team <= 0 ) {
+				cout << "team with the id " << id_team << " doesnt exist" << endl;
+				goto HELL;
+			}
+			if ( b[id_team].mony < a[id_player].prace ) {
+				cout << "the team cant afford to buy this player" << endl;
+				goto HELL;
+			}
+			if ( a[id_player].player_work == 1 ) {
+				cout << "player already has a team" << endl;
 				goto HELL;
 			}
 
-			if ( id_team > counter_b || id_player < 0 ) {
-				results[ c++ ] = -id_team;
-				goto HELL;
-			}
-
-			results[ c++ ] = 0;
-
+			b[id_team].mony -= a[id_player].prace;
+			a[id_player].player_work = 1;
+			cout << "player added to the team succesfully" << endl;
 			
 			HELL:
 			continue;
@@ -83,14 +89,5 @@ int main() {
 			cin_player_info();
 		else if ( input == "team" )
 			cin_team_info();
-	}
-
-	for ( int i = 0; i < c; i++ ) {
-		if ( results[ i ] == 0 )
-			cout << "player added to the team succesfully" << endl;
-		else if ( results[ i ] > 0 )
-			cout << "player with the id " << results[ i ] << " doesnt exist" << endl;
-		else if ( results[ i ] < 0 )
-			cout << "team with the id " << abs( results[ i ] ) << " doesnt exist" << endl;
 	}
 }
