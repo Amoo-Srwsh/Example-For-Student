@@ -2,17 +2,17 @@
 using namespace std;
 
 struct player {
-	char name[ 200 ];
+	string name;
 	int prace;
 	int speed;
 	int finishing;
 	int defence;
-	bool player_work = 0; 
 	int player_id;
+	bool player_work = 0; 
 };
 
 struct team {
-	char name[ 200 ];
+	string name;
 	int mony;
 	int team_id;
 };
