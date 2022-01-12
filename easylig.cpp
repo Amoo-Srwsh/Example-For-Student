@@ -31,10 +31,18 @@ void cin_player_info () {
 }
 
 void cin_team_info () {
-	cin >> b[counter_b].name >> b[counter_b].mony;
-	
-	counter_b++;
-	b[counter_b - 1].team_id = counter_b;
+	string input; cin >> input;
+        int m; cin >> m;
+
+        for ( int i = 0; i < counter_b; i++ )
+                if ( b[i].name == input )
+                        return;
+
+        b[ counter_b ].mony = mony,
+        b[ counter_b ].name = input;
+     
+        counter_b++;
+        b[counter_b - 1].team_id = counter_b;
 }
 
 int main()
