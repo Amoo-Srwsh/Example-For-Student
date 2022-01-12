@@ -43,20 +43,24 @@ void cin_team_info () {
         b[counter_b].team_id = ++counter_b;
 }
 
-int main()
-{
-	int id_palyer,
-	    id_team;
+int main() {	
 	
 	while ( 1 ) {
 		string input;
 		cin >> input;
 
 		if ( input == "buy" ) {
-			cin >> id_player >> id_team;
+			int id_player,
+                            id_team;
 
+                        cin >> id_player >> id_team;
+                        if ( id_player > counter_a && id_player < 0 )
+                                cout << "player with the id " << id_player << " doesnt exist" << endl;
 
-			continue;
+                        if ( id_team > counter_b || id_player < 0 )
+                                cout << "team with the id " << id_team << " doesnt exist" << endl;
+
+                        continue;
 		}
 
 		if ( input == "end" )
