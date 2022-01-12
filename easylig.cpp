@@ -26,8 +26,7 @@ void cin_player_info () {
 	cin >> a[counter_a].name >> a[counter_a].prace >> a[counter_a].speed >> 
 	       a[counter_a].finishing >> a[counter_a].defence;
 
-	counter_a++;
-	a[counter_a - 1].player_id = counter_a;
+	a[counter_a].player_id = ++counter_a;
 }
 
 void cin_team_info () {
@@ -41,8 +40,7 @@ void cin_team_info () {
         b[ counter_b ].mony = mony,
         b[ counter_b ].name = input;
      
-        counter_b++;
-        b[counter_b - 1].team_id = counter_b;
+        b[counter_b].team_id = ++counter_b;
 }
 
 int main()
