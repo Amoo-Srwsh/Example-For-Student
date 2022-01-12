@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <complex>
 using namespace std;
 
 struct player {
@@ -31,49 +32,65 @@ void cin_player_info () {
 
 void cin_team_info () {
 	string input; cin >> input;
-        int m; cin >> m;
+	int m; cin >> m;
 
-        for ( int i = 0; i < counter_b; i++ )
-                if ( b[i].name == input )
-                        return;
+	for ( int i = 0; i < counter_b; i++ )
+		if ( b[i].name == input )
+			return;
 
-        b[ counter_b ].mony = mony,
-        b[ counter_b ].name = input;
-     
-        b[counter_b].team_id = ++counter_b;
+	b[ counter_b ].mony = m;
+	b[ counter_b ].name = input;
+	
+	b[counter_b].team_id = ++counter_b;
 }
 
-int main() {	
-	
+int main() {
+
+	int results[100000], c = 0;
+
 	while ( 1 ) {
 		string input;
 		cin >> input;
 
 		if ( input == "buy" ) {
 			int id_player,
-                            id_team;
+			    id_team;
 
-                        cin >> id_player >> id_team;
-                        if ( id_player > counter_a && id_player < 0 )
-                                cout << "player with the id " << id_player << " doesnt exist" << endl;
+			cin >> id_player >> id_team;
+			if ( id_player > counter_a && id_player < 0 ) {
+				results[ c++ ] = id_player;
+				goto HELL;
+			}
 
-                        if ( id_team > counter_b || id_player < 0 )
-                                cout << "team with the id " << id_team << " doesnt exist" << endl;
+			if ( id_team > counter_b || id_player < 0 ) {
+				results[ c++ ] = -id_team;
+				goto HELL;
+			}
 
-                        continue;
+			results[ c++ ] = 0;
+
+			
+			HELL:
+			continue;
 		}
 
 		if ( input == "end" )
 			break;
+
 		cin >> input;
 
-		switch ( input ) {
-			case "player":
-				cin_palyer_info();
-			break;
-			case "team":
-				cin_team_info();
-			break;
-		}
+		if ( input == "player" )
+			cin_player_info();
+		else if ( input == "team" )
+			cin_team_info();
+	}
+
+	for ( int i = 0; i < c; i++ ) {
+		if ( results[ i ] == 0 )
+			cout << "player added to the team succesfully" << endl;
+		else if ( results[ i ] > 0 )
+			cout << "player with the id " << results[ i ] << " doesnt exist" << endl;
+		else if ( results[ i ] < 0 )
+			cout << "team with the id " << abs( results[ i ] ) << " doesnt exist" << endl;
 	}
 }
