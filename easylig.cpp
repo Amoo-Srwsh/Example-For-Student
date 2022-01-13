@@ -7,8 +7,7 @@ struct player {
 	int prace;
 	int speed;
 	int finishing;
-        int defence;
-	int player_id;
+	int defence;
 	bool player_work = 0; 
 };
 
@@ -33,7 +32,7 @@ void cin_player_info ( void ) {
 	cin >> a[counter_a].name >> a[counter_a].prace >> a[counter_a].speed >> 
 	       a[counter_a].finishing >> a[counter_a].defence;
 
-	a[counter_a].player_id = counter_a++;
+	counter_a++;
 }
 
 void cin_team_info ( void ) {
@@ -99,7 +98,7 @@ int main() {
 				cout << "team doesnt exist" << endl;
 				goto HELL1;
 			}
-			if ( playerid_teamN[id_team][id_player] == 0 ) {
+			if ( !( playerid_teamN[id_team][id_player] ) ) {
 				cout << "team doesnt have this player" << endl;
 				goto HELL1;
 			}
@@ -128,8 +127,22 @@ int main() {
 				cout << "the game can not be held due to loss of the players" << endl;
 				goto HELL2;
 			}
+			if ( b[teamID1].power_team > b[teamID2].power_team ) {
+				b[teamID1].mony += 1000;
+				b[teamID1].win++;
+				b[teamID2].loos++;
+			}
+			else if ( b[teamID2].power_team > b[teamID1].power_team ) {
+				b[teamID2].mony += 1000;
+				b[teamID2].win++;
+				b[teamID1].loos++;
+			}
+			else
+				b[teamID2].equal++, b[teamID1].equal++;
 			
-			// TODO
+                       HELL2:
+			continue;
+		}
 
 
 		if ( input == "end" )
