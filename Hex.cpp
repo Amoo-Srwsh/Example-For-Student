@@ -2,22 +2,22 @@
 using namespace std;
 
 int length;
-int func(string s)
+bool recursion(string s, int len)
 {
-	for (int i=0; s[i]!='\0'; i++)
-		if (s[i]!='F')
-			return 0;
-	cout << 1;
-	for (int i=0; s[i]!='\0'; i++)
-		cout << 0;
-	return 1;
+	if (s[len]=='\0') return true;
+	if (s[len]!='F') return false;
+	if (recursion(s,len+1)) {
+		cout << 1;
+		for (int i=0; i<length; i++)
+			cout << 0;
+		exit(1);
+	}
 }
 int main()
 {
 	string s; cin >> s;
 	length=s.length()-1;
-	if (func(s)==1)
-		return 1;
+	recursion(s,0);
 	do {
 		switch (s[length]) {
 			case 'F':
