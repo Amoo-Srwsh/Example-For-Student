@@ -12,6 +12,7 @@ bool recursion(string s, int len)
 			cout << 0;
 		exit(1);
 	}
+	return false;
 }
 int main()
 {
